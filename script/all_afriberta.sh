@@ -1,4 +1,28 @@
-for LANG in bam bbj ewe fon hau ibo kin lug luo nya pcm sna swa twi wol xho yor zul
+#!/bin/bash
+#SBATCH --job-name=afner         # create a short name for your job
+#SBATCH --nodes=1                # node count
+#SBATCH --ntasks=1               # total number of tasks across all nodes
+#SBATCH --cpus-per-task=1        # cpu-cores per task (>1 if multi-threaded tasks)
+#SBATCH --mem=64                 # total memory per node (4 GB per cpu-core is default)
+#SBATCH --gres=gpu:1             # number of gpus per node
+#SBATCH --constraint=a100        # for running on an A100 GPU
+#SBATCH --time=02:00:00          # total run time limit (HH:MM:SS)
+#SBATCH --mail-type=begin        # send email when job begins
+#SBATCH --mail-type=end          # send email when job ends
+#SBATCH --mail-user=hb3815@princeton.edu
+
+# which gpu node was used
+echo "Running on host" $(hostname)
+
+# print the slurm environment variables sorted by name
+printenv | grep -i slurm | sort
+
+module purge
+module load anaconda3/2023.9
+conda activate /home/hb3815/.conda/envs/torch-env
+
+
+for LANG in efi
 do
 	for j in 1 2 3 4 5
 	do
@@ -8,11 +32,13 @@ do
 		export TEXT_RESULT=test_result$j.txt
 		export TEXT_PREDICTION=test_predictions$j.txt
 		export BATCH_SIZE=16
-		export NUM_EPOCHS=20
-		export SAVE_STEPS=10000
+		export NUM_EPOCHS=2
+		export SAVE_STEPS=10
 		export SEED=$j
 
-		CUDA_VISIBLE_DEVICES=3 python3 ../train_pos.py --data_dir ../data/${LANG}/ \
+		#CUDA_VISIBLE_DEVICES=3
+		HF_DATASETS_OFFLINE=1 TRANSFORMERS_OFFLINE=1 \
+		python3 ../train_pos.py --data_dir ../data/${LANG}/ \
 		--model_type xlmroberta \
 		--model_name_or_path $BERT_MODEL \
 		--output_dir $OUTPUT_DIR \
