@@ -33,7 +33,7 @@ do
 		export TEXT_RESULT=test_result$j.txt
 		export TEXT_PREDICTION=test_predictions$j.txt
 		export BATCH_SIZE=16
-		export NUM_EPOCHS=1
+		export NUM_EPOCHS=2
 		export SAVE_STEPS=10
 		export SEED=$j
 
