@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=afner         # create a short name for your job
 #SBATCH --nodes=2               # node count
-#SBATCH --ntasks=1              # total number of tasks across all nodes
+#SBATCH --ntasks=2              # total number of tasks across all nodes
 #SBATCH --cpus-per-task=16        # cpu-cores per task (>1 if multi-threaded tasks)
 #SBATCH --mem=16G                 # total memory per node (4 GB per cpu-core is default)
 #SBATCH --gres=gpu:2             # number of gpus per node
