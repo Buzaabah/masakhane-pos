@@ -229,7 +229,7 @@ def train(args, train_dataset, model, tokenizer, labels, pad_token_label_id):
 
                 scheduler.step()  # Update learning rate schedule
                 optimizer.step()
-                model.zero_grad(set_to_none=True)
+                model.zero_grad()
                 global_step += 1
 
                 if args.local_rank in [-1, 0] and args.logging_steps > 0 and global_step % args.logging_steps == 0:
