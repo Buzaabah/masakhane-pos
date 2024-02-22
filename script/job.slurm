@@ -20,9 +20,10 @@ printenv | grep -i slurm | sort
 
 module purge
 module load anaconda3/2023.9
-conda activate /home/hb3815/.conda/envs/torch-env
-
-
+#to run experiments in home
+#conda activate /home/hb3815/.conda/envs/torch-env
+#to run experiments on scratch
+conda activate /scratch/network/hb3815/.conda/envs/torch-env
 for LANG in efi
 do
 	for j in 1 2 3 4 5
