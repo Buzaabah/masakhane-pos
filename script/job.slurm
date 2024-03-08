@@ -1,15 +1,16 @@
 #!/bin/bash
-#SBATCH --job-name=afner         # create a short name for your job
+#SBATCH --job-name=afner        # create a short name for your job
 #SBATCH --nodes=1               # node count
 #SBATCH --ntasks=1              # total number of tasks across all nodes
-#SBATCH --cpus-per-task=16        # cpu-cores per task (>1 if multi-threaded tasks)
-#SBATCH --mem=16G                 # total memory per node (4 GB per cpu-core is default)
-#SBATCH --gres=gpu:2             # number of gpus per node
-#SBATCH --constraint=a100        # for running on an A100 GPU
-#SBATCH --constraint=gpu80       # for an 100 with 80 GB of memory
+#SBATCH --cpus-per-task=16      # cpu-cores per task (>1 if multi-threaded tasks)
+#SBATCH --mem-per-cpu=16G       # total memory per node (4 GB per cpu-core is default)
+#SBATCH --gres=gpu:2            # number of gpus per node
+#SBATCH --constraint=a100       # for running on an A100 GPU
+#SBATCH --constraint=gpu80      # for an 100 with 80 GB of memory
 #SBATCH --time=8:00:00          # total run time limit (HH:MM:SS)
-#SBATCH --mail-type=begin        # send email when job begins
-#SBATCH --mail-type=end          # send email when job ends
+#SBATCH --mail-type=begin       # send email when job begins
+#SBATCH --mail-type=end         # send email when job ends
+#SBATCH --mail-type=fail        # send mail if job fails
 #SBATCH --mail-user=hb3815@princeton.edu
 
 # which gpu node was used
@@ -23,7 +24,11 @@ module load anaconda3/2023.9
 #to run experiments in home
 #conda activate /home/hb3815/.conda/envs/torch-env
 #to run experiments on scratch
-conda activate /scratch/network/hb3815/.conda/envs/torch-env
+
+# Adroit
+# conda activate /scratch/network/hb3815/.conda/envs/torch-env
+#Della
+conda activate /scratch/gpfs/hb3815/.conda/envs/torch-env
 for LANG in efi
 do
 	for j in 1 2 3 4 5
@@ -34,7 +39,7 @@ do
 		export TEXT_RESULT=test_result$j.txt
 		export TEXT_PREDICTION=test_predictions$j.txt
 		export BATCH_SIZE=8
-		export NUM_EPOCHS=10
+		export NUM_EPOCHS=20
 		export SAVE_STEPS=10
 		export SEED=$j
 
