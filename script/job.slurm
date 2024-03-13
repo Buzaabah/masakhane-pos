@@ -29,6 +29,8 @@ module load anaconda3/2024.2
 #Della
 #conda activate /scratch/gpfs/hb3815/.conda/envs/torch-env
 
+conda activate torch-env
+
 for LANG in efi
 do
 	for j in 1 2 3 4 5
