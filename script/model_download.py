@@ -1,6 +1,6 @@
 from transformers import AutoModel, AutoTokenizer
 
-model_name = "castorini/afriberta_large"
+model_name = "Davlan/afriberta_large"
 
 # Download and cache model and tokenizer
 model = AutoModel.from_pretrained(model_name)

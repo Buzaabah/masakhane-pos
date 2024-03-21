@@ -26,6 +26,7 @@ module load anaconda3/2024.2
 
 # Adroit
 # conda activate /scratch/network/hb3815/.conda/envs/torch-env
+
 #Della
 conda activate /scratch/gpfs/hb3815/.conda/envs/torch-env
 
