@@ -6,7 +6,7 @@
 #SBATCH --mem-per-cpu=32G       # total memory per node (4 GB per cpu-core is default)
 #SBATCH --gres=gpu:2           # number of gpus per node
 #SBATCH --partition=mig
-#SBATCH --constraint=a100       # for running on an A100 GPU
+####### --constraint=a100       # for running on an A100 GPU
 #SBATCH --time=8:00:00          # total run time limit (HH:MM:SS)
 #SBATCH --mail-type=begin       # send email when job begins
 #SBATCH --mail-type=end         # send email when job ends
