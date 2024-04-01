@@ -2,7 +2,7 @@
 from transformers import pipeline
 from transformers import AutoModel, AutoTokenizer, AutoModelForMaskedLM
 
-pipe = pipeline("fill-mask", model="Davlan/afro-xlmr-base")
+pipe = pipeline("fill-mask", model="Davlan/afro-xlmr-large")
 
 #model_name = "Davlan/afriberta_large"
 
@@ -12,5 +12,5 @@ pipe = pipeline("fill-mask", model="Davlan/afro-xlmr-base")
 
 # The model and tokenizer are now cached in the Hugging Face cache directory
 
-tokenizer = AutoTokenizer.from_pretrained("Davlan/afro-xlmr-base")
-model = AutoModelForMaskedLM.from_pretrained("Davlan/afro-xlmr-base")
+tokenizer = AutoTokenizer.from_pretrained("Davlan/afro-xlmr-large")
+model = AutoModelForMaskedLM.from_pretrained("Davlan/afro-xlmr-large")

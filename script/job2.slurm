@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=afner        # create a short name for your job
+#SBATCH --job-name=afpos        # create a short name for your job
 #SBATCH --nodes=1               # node count
 #SBATCH --ntasks=1              # total number of tasks across all nodes
 #SBATCH --cpus-per-task=1       # cpu-cores per task (>1 if multi-threaded tasks)
@@ -33,14 +33,14 @@ conda activate /scratch/gpfs/hb3815/.conda/envs/torch-env
 
 #conda activate torch-env
 
-for LANG in efi
+for LANG in yor, efi
 do
 	for j in 1 2 3 4 5
 	do
 		export MAX_LENGTH=200
 		#export BERT_MODEL=castorini/afriberta_large
-		export BERT_MODEL=Davlan/afro-xlmr-base
-		export OUTPUT_DIR=baseline_models/${LANG}_xlmr-base
+		export BERT_MODEL=Davlan/afro-xlmr-large
+		export OUTPUT_DIR=baseline_models/${LANG}_xlmr-large
 		export TEXT_RESULT=test_result$j.txt
 		export TEXT_PREDICTION=test_predictions$j.txt
 		export BATCH_SIZE=8
