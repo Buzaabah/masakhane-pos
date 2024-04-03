@@ -33,14 +33,14 @@ conda activate /scratch/gpfs/hb3815/.conda/envs/torch-env
 
 #conda activate torch-env
 
-for LANG in yor
+for LANG in yor, efi
 do
 	for j in 1 2 3 4 5
 	do
 		export MAX_LENGTH=200
-		#export BERT_MODEL=castorini/afriberta_large
-		export BERT_MODEL=Davlan/afro-xlmr-base
-		export OUTPUT_DIR=baseline_models/${LANG}_xlmr-base
+		#export BERT_MODEL=bonadossou/afrolm_active_learning
+		export BERT_MODEL=bonadossou/afrolm_active_learning
+		export OUTPUT_DIR=baseline_models/${LANG}_afrolm
 		export TEXT_RESULT=test_result$j.txt
 		export TEXT_PREDICTION=test_predictions$j.txt
 		export BATCH_SIZE=8
