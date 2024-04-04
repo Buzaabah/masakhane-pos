@@ -6,8 +6,8 @@ from transformers import XLMRobertaModel, XLMRobertaTokenizer
 from transformers import BertTokenizer, BertModel
 from transformers import RemBertModel, RemBertConfig, RemBertTokenizer
 
-#unmasker = pipeline("fill-mask", model="xlm-roberta-large")
-#unmasker = pipeline("fill-mask", model="xlm-roberta-base")
+unmasker = pipeline("fill-mask", model="xlm-roberta-large")
+unmasker = pipeline("fill-mask", model="xlm-roberta-base")
 
 
 #model_name = "Davlan/afriberta_large"
@@ -28,15 +28,15 @@ from transformers import RemBertModel, RemBertConfig, RemBertTokenizer
 
 #mBERT
 
-model = BertModel.from_pretrained("bert-base-multilingual-cased")
-tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-cased')
+#model = BertModel.from_pretrained("bert-base-multilingual-cased")
+#tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-cased')
 
 #RemBERT
 """
 model = RemBertModel.from_pretrained("bert-base-multilingual-cased")
 tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-cased')
 """
-"""
+
 
 #XLMR
 from transformers import AutoTokenizer, AutoModelForMaskedLM
@@ -47,4 +47,3 @@ model = AutoModelForMaskedLM.from_pretrained("xlm-roberta-large")
 tokenizer = AutoTokenizer.from_pretrained('xlm-roberta-base')
 model = AutoModelForMaskedLM.from_pretrained("xlm-roberta-base")
 
-"""
