@@ -38,8 +38,8 @@ do
 	for j in 1 2 3 4 5
 	do
 		export MAX_LENGTH=200
-		#export BERT_MODEL=castorini/afriberta_large
-		export BERT_MODEL=Davlan/afro-xlmr-base
+		export BERT_MODEL=bert-base-multilingual-cased
+		#export BERT_MODEL=Davlan/afro-xlmr-base
 		export OUTPUT_DIR=baseline_models/${LANG}_xlmr-base
 		export TEXT_RESULT=test_result$j.txt
 		export TEXT_PREDICTION=test_predictions$j.txt

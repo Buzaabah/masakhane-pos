@@ -38,12 +38,12 @@ do
 	for j in 1 2 3 4 5
 	do
 		export MAX_LENGTH=200
+		export BERT_MODEL=google/rembert
 		#export BERT_MODEL=bonadossou/afrolm_active_learning
-		export BERT_MODEL=bonadossou/afrolm_active_learning
 		export OUTPUT_DIR=baseline_models/${LANG}_afrolm
 		export TEXT_RESULT=test_result$j.txt
 		export TEXT_PREDICTION=test_predictions$j.txt
-		export BATCH_SIZE=8
+		export BATCH_SIZE=16
 		export NUM_EPOCHS=20
 		export SAVE_STEPS=10
 		export SEED=$j
