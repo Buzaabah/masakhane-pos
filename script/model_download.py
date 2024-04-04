@@ -33,13 +33,13 @@ from transformers import RemBertModel, RemBertConfig, RemBertTokenizer
 
 #RemBERT
 
-configuration = RemBertConfig()
-model = RemBertModel(configuration)
+#configuration = RemBertConfig()
+#model = RemBertModel(configuration)
 
-configuration = model.config
+#configuration = model.config
 
-#model = RemBertModel.from_pretrained("bert-base-multilingual-cased")
-#tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-cased')
+model = RemBertModel.from_pretrained("google/rembert")
+tokenizer = RemBertTokenizer.from_pretrained('google/rembert')
 
 
 """
