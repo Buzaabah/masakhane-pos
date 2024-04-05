@@ -38,8 +38,8 @@ from transformers import RemBertModel, RemBertConfig, RemBertTokenizer
 
 #configuration = model.config
 
-model = RemBertModel.from_pretrained("google/rembert")
-tokenizer = RemBertTokenizer.from_pretrained('google/rembert')
+#model = RemBertModel.from_pretrained("google/rembert")
+#tokenizer = RemBertTokenizer.from_pretrained('google/rembert')
 
 
 """
@@ -54,3 +54,8 @@ tokenizer = AutoTokenizer.from_pretrained('xlm-roberta-base')
 model = AutoModelForMaskedLM.from_pretrained("xlm-roberta-base")
 
 """
+
+from transformers import T5ForConditionalGeneration, AutoTokenizer
+
+model = T5ForConditionalGeneration.from_pretrained('google/byt5-xxl')
+tokenizer = AutoTokenizer.from_pretrained('google/byt5-xxl')
