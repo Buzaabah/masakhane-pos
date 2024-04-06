@@ -39,7 +39,8 @@ do
 	do
 		export MAX_LENGTH=200
 		#export BERT_MODEL=bert-base-multilingual-cased
-		export BERT_MODEL=Davlan/afro-xlmr-large
+		#export BERT_MODEL=Davlan/afro-xlmr-large
+		export BERT_MODEL=xlm-roberta-base
 		export OUTPUT_DIR=baseline_models/${LANG}_xlmr-base
 		export TEXT_RESULT=test_result$j.txt
 		export TEXT_PREDICTION=test_predictions$j.txt
