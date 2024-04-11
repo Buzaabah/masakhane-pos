@@ -33,7 +33,7 @@ conda activate /scratch/gpfs/hb3815/.conda/envs/torch-env
 
 #conda activate torch-env
 
-for LANG in efi
+for LANG in yor
 do
 	for j in 1 2 3 4 5
 	do
