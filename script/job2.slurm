@@ -4,9 +4,9 @@
 #SBATCH --ntasks=1              # total number of tasks across all nodes
 #SBATCH --cpus-per-task=1       # cpu-cores per task (>1 if multi-threaded tasks)
 #SBATCH --mem-per-cpu=32G       # total memory per node (4 GB per cpu-core is default)
-#SBATCH --gres=gpu:2           # number of gpus per node
-####### --partition=mig
-#SBATCH --constraint=a100       # for running on an A100 GPU
+#SBATCH --gres=gpu:1           # number of gpus per node
+#SBATCH --partition=mig
+####### --constraint=a100       # for running on an A100 GPU
 #SBATCH --time=8:00:00          # total run time limit (HH:MM:SS)
 #SBATCH --mail-type=begin       # send email when job begins
 #SBATCH --mail-type=end         # send email when job ends
@@ -38,8 +38,8 @@ do
 	for j in 1 2 3 4 5
 	do
 		export MAX_LENGTH=200
-		#export BERT_MODEL=castorini/afriberta_large
-		export BERT_MODEL=Davlan/afro-xlmr-large
+		export BERT_MODEL=google/rembert
+		#export BERT_MODEL=Davlan/afro-xlmr-large
 		export OUTPUT_DIR=baseline_models/${LANG}_xlmr-large
 		export TEXT_RESULT=test_result$j.txt
 		export TEXT_PREDICTION=test_predictions$j.txt
